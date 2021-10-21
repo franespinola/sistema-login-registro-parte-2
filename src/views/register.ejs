@@ -11,7 +11,7 @@
 <body>
     <div class="register-form">
         <h1>Registration</h1>
-        <form action="/register" method="post">
+        <form action="/register" method="post" enctype="multipart/form-data">
             <label for="user">User</label>
             <input type="text" name="user" value="<% if(typeof valores != 'undefined') { %><%= valores.user %><%}%>"">
             
@@ -26,6 +26,9 @@
 
             <label for="pass">Password</label>
             <input type="password" name="pass" value="<% if(typeof valores != 'undefined') { %><%= valores.pass %><%}%>">
+
+            <label for="avatar">Avatar</label>
+            <input type="file" name="avatar" accept=".gif,.jpg,.jpeg,.png" >
 
 
             <div style="display: inline;">

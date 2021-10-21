@@ -17,7 +17,6 @@ const userControllers={
            console.log(errors)
         }*/
         const errors = validationResult(req)
-        console.log(req.body)
         if (!errors.isEmpty()) {
             const valores= req.body
             const validaciones = errors.array()
@@ -31,12 +30,14 @@ const userControllers={
             const name = req.body.name;
             const rol = req.body.rol;
             const pass = req.body.pass;
+            const avatar = "/public/img/users_img/"+req.file.filename
             const passwordHash = await bcryptjs.hash(pass,8)
             db.User.create({
                 user: user,
                 name: name,
                 rol: rol,
-                pass: passwordHash
+                pass: passwordHash,
+                avatar:avatar
             })
             .then(()=>{
                 res.render('register',{

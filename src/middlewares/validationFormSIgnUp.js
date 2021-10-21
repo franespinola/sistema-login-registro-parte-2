@@ -1,11 +1,13 @@
 
 const{body}=require('express-validator');
+const path = require('path')
+
 const validationFormSignUp=[
     body('user').notEmpty().withMessage('*Ingrese su usuario'),
     body('name').notEmpty().withMessage('*Ingrese su nombre completo'),
-    body('pass').isLength({min:5,max:15}).withMessage('*Ingrese contraseña válida (entre 5 y 15 caracteres)'),
+    body('pass').isLength({min:5,max:255}).withMessage('*Ingrese contraseña válida (más de 5 caracteres)'),
     
-    /*body('avatar').custom((value,{ req })=>{
+    body('avatar').custom((value,{ req })=>{
         let file=req.file;
         let acceptedExtensions=['.png', '.webp', '.jpg'];
         if (!file){
@@ -18,12 +20,9 @@ const validationFormSignUp=[
         }
        
         return true;
-    })*/
+    })
 ]
 
-const validationFormLogin=[
-    body('user').notEmpty().withMessage('*Ingrese su nombre'),
-    body('pass').isLength({min:5,max:15}).withMessage('*Ingrese contraseña válida (entre 5 y 15 caracteres)'),
-]
 
-module.exports=validationFormSignUp,validationFormLogin
+
+module.exports=validationFormSignUp
