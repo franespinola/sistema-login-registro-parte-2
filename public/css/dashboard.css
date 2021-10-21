@@ -140,6 +140,9 @@ body {
 .menu {
     border-top: 5px #fff solid;
 }
+.imagen{
+    box-shadow: 0px 0px 20px #404040;
+}
 
 @media screen and (max-width:575px) {
     .barra-lateral {
@@ -155,5 +158,8 @@ body {
     body {
         font-size: 16px;
         overflow: visible;
+    }
+    .imagen{
+        box-shadow: 0px 0px 20px #404040;
     }
 }
