@@ -15,9 +15,11 @@ const apiControllers={
        const id= req.body.id_editar
        const name=req.body.nombre_editar
        const user= req.body.edad_editar
+       //const avatar= req.file.filename
        db.User.update({
            name:name,
-           user:user
+           user:user,
+          // avatar:avatar
         
        },{
            where:{id:id}
@@ -47,7 +49,8 @@ const apiControllers={
             name:fullName,
             user:user,
             pass:0,
-            rol:0
+            rol:0,
+            avatar:0
         })
         .then(()=>{
             res.redirect('/api/users')

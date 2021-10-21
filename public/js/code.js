@@ -11,5 +11,6 @@ on(document, 'click', '.btnEditar', e =>{
     id_editar.value = fila.children[0].innerHTML
     nombre_editar.value = fila.children[1].innerHTML
     edad_editar.value = fila.children[2].innerHTML
+    /*avatar.value = fila.children[3].innerHTML*/
     modalAlumno.show()
 })
