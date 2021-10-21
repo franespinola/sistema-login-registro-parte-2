@@ -1,6 +1,6 @@
 const indexControllers={
     index:(req,res)=>{
-       console.log(req.session.rol)
+       console.log(req.session.user)
         if(req.session.loggedin){
            res.render('index',{
                login:true,
@@ -21,7 +21,12 @@ const indexControllers={
         })
     },
     dashboard:(req,res)=>{
-        res.render('dashboard')
+        res.render('dashboard',{
+            user:req.session.user,
+            name:req.session.name,
+            rol:req.session.rol
+        })
+        
     }
 }
 
